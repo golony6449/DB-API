@@ -74,8 +74,8 @@ jobs:
 
         # docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPOSITORY:latest .
         # docker push --all-tags $ECR_REGISTRY/$ECR_REPOSITORY
-
-          sudo ./gradlew bootBuildImage --imageName $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          chmod +x ./gradlew
+          ./gradlew bootBuildImage --imageName $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
 
