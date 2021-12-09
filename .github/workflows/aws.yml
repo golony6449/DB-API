@@ -92,17 +92,18 @@ jobs:
 #         wait-for-service-stability: true
 
   ssh:
-    name: Deploy
+    name: Deploy By SSH
     runs-on: ubuntu-latest
     environment: production
 
     steps:
-      - name: Deploy
+      - name: Deploy By SSH
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.REMOTE_IP }}
           username: ${{ secrets.REMOTE_SSH_ID }}
           key: ${{ secrets.REMOTE_SSH_KEY }}
           port: ${{ secrets.REMOTE_SSH_PORT }}
+          passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             whoami
