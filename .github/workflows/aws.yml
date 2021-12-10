@@ -129,7 +129,7 @@ jobs:
           key: ${{ secrets.REMOTE_SSH_KEY }}
           port: ${{ secrets.REMOTE_SSH_PORT }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          envs: ECR_REGISTRY
+          envs: ECR_REGISTRY,ECR_REPOSITORY
           script: |
             whoami
             docker login --username AWS -p $(aws ecr get-login-password --region ${{ env.AWS_REGION }}) $ECR_REGISTRY
