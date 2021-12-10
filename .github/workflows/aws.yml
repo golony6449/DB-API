@@ -102,7 +102,7 @@ jobs:
     name: Deploy By SSH
     runs-on: ubuntu-latest
     environment: production
-    needs: ecr-deploy
+#    needs: ecr-deploy
 
     steps:
       - name: Checkout
