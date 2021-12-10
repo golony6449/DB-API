@@ -117,5 +117,5 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             whoami
-            aws ecr get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin $ECR_REGISTRY
+            docker login --username AWS -p $(aws ecr get-login-password --region ${{ env.AWS_REGION }}) $ECR_REGISTRY
             docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
