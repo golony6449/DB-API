@@ -133,4 +133,7 @@ jobs:
           script: |
             whoami
             docker login --username AWS -p $(aws ecr get-login-password --region ${{ env.AWS_REGION }}) $ECR_REGISTRY
-            docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
+            # docker pull $ECR_REGISTRY/$ECR_REPOSITORY:latest
+            docker-compose pull
+            # docker-compose down
+            # docker-compose up
