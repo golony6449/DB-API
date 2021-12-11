@@ -3,11 +3,13 @@ services:
   redis:
     image: redis:6.2.6
 
-  nginx:
-    image: nginx:1.21.4
-    ports:
-      - "80:80"
-      - "443:443"
+#  nginx:
+#    image: nginx:1.21.4
+#    ports:
+#      - "80:80"
+#      - "443:443"
 
   api:
     image: "${ECR_REGISTRY}/${ECR_REPOSITORY}:latest"
+    ports:
+      - "${PORT}:${PORT}"
